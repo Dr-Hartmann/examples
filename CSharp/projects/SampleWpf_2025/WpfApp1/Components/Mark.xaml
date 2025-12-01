@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="WpfApp1.Components.Mark"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp1.Components"
+             xmlns:o="System.Windows.Controls"
+             mc:Ignorable="d"
+             x:Name="DigitMark">
+    <UserControl.Resources>       
+        <Style TargetType="Grid" x:Key="HorizontalGrid">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=DigitMark, Path=Orientation}" Value="Horizontal">
+                    <Setter Property="Visibility" Value="Visible"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ElementName=DigitMark, Path=Orientation}" Value="Vertical">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                </DataTrigger>                
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="Grid" x:Key="VerticalGrid">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=DigitMark, Path=Orientation}" Value="Horizontal">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ElementName=DigitMark, Path=Orientation}" Value="Vertical">
+                    <Setter Property="Visibility" Value="Visible"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="Path" x:Key="MarkPapth">
+            <Setter Property="Stroke" Value="Gray"/>
+            <Setter Property="Fill" Value="Black"/>
+            <Setter Property="StrokeThickness" Value="0.5"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid Style="{StaticResource HorizontalGrid}">
+            <Grid.Resources>
+                <Style TargetType="Path" BasedOn="{StaticResource MarkPapth}">
+                    <Setter Property="Width" Value="100"/>
+                    <Setter Property="Height" Value="20"/>
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                </Style>
+            </Grid.Resources>
+            <Path Data="M10,10L20,0L80,0L90,10L80,20L20,20Z"/>
+            <Path  Fill="{Binding ElementName=DigitMark, Path=Color}"
+                   Visibility="{Binding ElementName=DigitMark, Path=MarkVisible}"                  
+                   Stroke="Black"
+                   Data="M13,10L21,02L79,2L87,10L79,18L21,18Z"/>
+        </Grid>
+        <Grid Style="{StaticResource VerticalGrid}">            
+            <Grid.Resources>
+                <Style TargetType="Path" BasedOn="{StaticResource MarkPapth}">
+                    <Setter Property="Width" Value="20"/>
+                    <Setter Property="Height" Value="100"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                </Style>
+            </Grid.Resources>
+            <Path Data="M10,0L20,10L20,90L10,100L0,90L0,10Z"/>
+            <Path Fill="{Binding ElementName=DigitMark, Path=Color}" 
+                  Visibility="{Binding ElementName=DigitMark, Path=MarkVisible}"
+                  Stroke="Black"
+                  Data="M10,3L18,11L18,89L10,97L2,89L2,11Z">                
+            </Path>
+        </Grid>
+    </Grid>
+</UserControl>
