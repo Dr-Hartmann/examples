@@ -1,0 +1,4 @@
+UI.Speed===Скорость симуляции:</END>
+UI.Button===Кнопка</END>
+UI.Localization===Язык</END>
+UI.Pause===Симуляция остановлена</END>

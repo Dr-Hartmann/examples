@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 4
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 3
+      m_CompressionQuality: 0
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_IgnorePlatformSupport: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 2
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 855945459d5074d4e84a5a625668a433, type: 3}
+    - {fileID: 2800000, guid: c862e77854a120746b5b6eae92029214, type: 3}
+    - {fileID: 2800000, guid: 6b7b7670d5faec04f9d0a41c5dee556e, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - 6b7b7670d5faec04f9d0a41c5dee556e: 1446499372
+    - 855945459d5074d4e84a5a625668a433: -7237472072382729174
+    - 855945459d5074d4e84a5a625668a433: -8315295956674182197
+    - 855945459d5074d4e84a5a625668a433: -9124727645642988533
+    - 855945459d5074d4e84a5a625668a433: -2986871994705294210
+    - 855945459d5074d4e84a5a625668a433: 8359661988393023892
+    - 855945459d5074d4e84a5a625668a433: -7138311499508957143
+    - 855945459d5074d4e84a5a625668a433: 4009284081192125275
+    - 855945459d5074d4e84a5a625668a433: 650656284835190746
+    - 855945459d5074d4e84a5a625668a433: -6460607209241108654
+    - 855945459d5074d4e84a5a625668a433: -480254276019886394
+    - 855945459d5074d4e84a5a625668a433: 3713549098536957005
+    - 855945459d5074d4e84a5a625668a433: -8191739510646017925
+    - 855945459d5074d4e84a5a625668a433: 5830344958925785552
+    - 855945459d5074d4e84a5a625668a433: -3219683103784253410
+    - 855945459d5074d4e84a5a625668a433: 1008705478319212569
+    - 855945459d5074d4e84a5a625668a433: 2958514102543403041
+    - c862e77854a120746b5b6eae92029214: -513916717
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 1446499372, guid: 6b7b7670d5faec04f9d0a41c5dee556e, type: 3}
+  - {fileID: -7237472072382729174, guid: 855945459d5074d4e84a5a625668a433, type: 3}
+  - {fileID: -8315295956674182197, guid: 855945459d5074d4e84a5a625668a433, type: 3}
+  - {fileID: -9124727645642988533, guid: 855945459d5074d4e84a5a625668a433, type: 3}
+  - {fileID: -2986871994705294210, guid: 855945459d5074d4e84a5a625668a433, type: 3}
+  - {fileID: 8359661988393023892, guid: 855945459d5074d4e84a5a625668a433, type: 3}
+  - {fileID: -7138311499508957143, guid: 855945459d5074d4e84a5a625668a433, type: 3}
+  - {fileID: 4009284081192125275, guid: 855945459d5074d4e84a5a625668a433, type: 3}
+  - {fileID: 650656284835190746, guid: 855945459d5074d4e84a5a625668a433, type: 3}
+  - {fileID: -6460607209241108654, guid: 855945459d5074d4e84a5a625668a433, type: 3}
+  - {fileID: -480254276019886394, guid: 855945459d5074d4e84a5a625668a433, type: 3}
+  - {fileID: 3713549098536957005, guid: 855945459d5074d4e84a5a625668a433, type: 3}
+  - {fileID: -8191739510646017925, guid: 855945459d5074d4e84a5a625668a433, type: 3}
+  - {fileID: 5830344958925785552, guid: 855945459d5074d4e84a5a625668a433, type: 3}
+  - {fileID: -3219683103784253410, guid: 855945459d5074d4e84a5a625668a433, type: 3}
+  - {fileID: 1008705478319212569, guid: 855945459d5074d4e84a5a625668a433, type: 3}
+  - {fileID: 2958514102543403041, guid: 855945459d5074d4e84a5a625668a433, type: 3}
+  - {fileID: -513916717, guid: c862e77854a120746b5b6eae92029214, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - play_0
+  - buttons_14
+  - buttons_15
+  - buttons_12
+  - buttons_13
+  - buttons_10
+  - buttons_11
+  - buttons_9
+  - buttons_8
+  - buttons_3
+  - buttons_2
+  - buttons_1
+  - buttons_0
+  - buttons_7
+  - buttons_6
+  - buttons_5
+  - buttons_4
+  - pause_0
+  m_RenderDataMap: {}
+  m_Tag: UI
+  m_IsVariant: 0

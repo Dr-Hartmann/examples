@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48ea7f72c5350bc48b79563d4b5a180b, type: 3}
+  m_Name: ValvesCreatorSettings 1
+  m_EditorClassIdentifier: 
+  _prefabCreator: {fileID: 6637965929981856097, guid: 6e0e8f814d254b348b41f8af63299a1c, type: 3}
+  _createRadius: 2
+  _valveCenter: {fileID: 6780984764370593923, guid: 6f7ce8bed03caa348b5f26d24b8ec133, type: 3}
