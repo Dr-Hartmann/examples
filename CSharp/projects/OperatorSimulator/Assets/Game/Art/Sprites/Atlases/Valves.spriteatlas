@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Valves
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 244122b969e24a14b92cf3550351a6d4, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - 244122b969e24a14b92cf3550351a6d4: -1776586096
+    - 244122b969e24a14b92cf3550351a6d4: -1763671082
+    - 244122b969e24a14b92cf3550351a6d4: 781954147
+    - 244122b969e24a14b92cf3550351a6d4: 576502844
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -1776586096, guid: 244122b969e24a14b92cf3550351a6d4, type: 3}
+  - {fileID: -1763671082, guid: 244122b969e24a14b92cf3550351a6d4, type: 3}
+  - {fileID: 781954147, guid: 244122b969e24a14b92cf3550351a6d4, type: 3}
+  - {fileID: 576502844, guid: 244122b969e24a14b92cf3550351a6d4, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - valve_3
+  - valve_0
+  - valve_1
+  - valve_2
+  m_RenderDataMap: {}
+  m_Tag: Valves
+  m_IsVariant: 0

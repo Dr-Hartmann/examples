@@ -1,0 +1,4 @@
+UI.Speed===仿真速度:</END>
+UI.Localization===语言</END>
+UI.Pause===模拟停止
+текст</END>

@@ -1,0 +1,249 @@
+###############################
+# Общие мусорные файлы
+###############################
+*.log
+*.tmp
+*.temp
+*.bak
+*.old
+*.swp
+*.swo
+*.orig
+*.backup
+*.lock
+*.pid
+
+# Архивы (если не нужны в репо)
+*.zip
+*.7z
+*.tar
+*.tar.gz
+*.rar
+
+# Кеши
+.cache/
+.cache*/
+*.cache
+*.pch
+
+###############################
+# Системные
+###############################
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
+
+###############################
+# Git
+###############################
+*.merge_file
+*.rej
+*.orig
+
+###############################
+# C / C++
+###############################
+*.o
+*.obj
+*.lo
+*.la
+*.a
+*.lib
+*.dll
+*.so
+*.dylib
+*.exe
+*.out
+*.pdb
+*.idb
+*.ilk
+
+###############################
+# C#
+###############################
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.vsp
+*.vspscc
+.vs/
+*.dbmdl
+
+###############################
+# Java
+###############################
+*.class
+*.jar
+*.war
+*.ear
+*.javadoc
+*.iml
+target/
+out/
+.gradle/
+.mvn/
+mvnw*
+.settings/
+
+###############################
+# Kotlin
+###############################
+*.kotlin_module
+*.class
+*.iml
+out/
+target/
+
+###############################
+# Python
+###############################
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.ruff_cache/
+.ipynb_checkpoints/
+venv/
+env/
+.env/
+.venv/
+
+###############################
+# Jupyter Notebook
+###############################
+.ipynb_checkpoints/
+*.nbconvert.ipynb
+
+###############################
+# JavaScript / Node / Web
+###############################
+node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-lock.yaml
+dist/
+build/
+*.map
+
+###############################
+# Dart / Flutter
+###############################
+.dart_tool/
+.packages
+.pub/
+build/
+.flutter-*
+android/.gradle/
+android/local.properties
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/flutter_export_environment.sh
+
+###############################
+# HTML / CSS / Frontend
+###############################
+*.map
+.cache/
+.eslintcache
+
+###############################
+# Assembler
+###############################
+*.lst
+*.map
+*.hex
+*.bin
+*.elf
+
+###############################
+# Rust (если вдруг появится)
+###############################
+target/
+Cargo.lock  # по желанию
+
+###############################
+# Go (на всякий случай)
+###############################
+bin/
+pkg/
+*.exe
+
+###############################
+# IDE: VS Code
+###############################
+.vscode/
+.history/
+
+###############################
+# IDE: JetBrains
+###############################
+.idea/
+*.iml
+out/
+
+###############################
+# IDE: Eclipse
+###############################
+.project
+.classpath
+.settings/
+
+###############################
+# IDE: NetBeans
+###############################
+nbproject/private/
+build/
+dist/
+
+###############################
+# Visual Studio
+###############################
+.vs/
+*.opendb
+*.VC.db
+Generated Files/
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+[Aa][Rr][Mm]64[Ee][Cc]/
+bld/
+[Oo]bj/
+[Oo]ut/
+[Ll]og/
+[Ll]ogs/
+
+###############################
+# CMake
+###############################
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+###############################
+# Make / Ninja
+###############################
+*.d
+*.ninja
+.ninja_deps
+.ninja_log
+
+###############################
+# Прочие инструменты
+###############################
+*.coverage
+.coverage*
+coverage/
+pytest_cache/
+.mypy_cache/
+ruff_cache/
