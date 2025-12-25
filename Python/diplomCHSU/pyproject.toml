@@ -1,0 +1,36 @@
+[project]
+name = "diplomCHSU"
+version = "0.1.0"
+description = "Моя Выпускная Квалификационная Работа в ЧГУ"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+    "albumentations>=2.0.8",
+    "jupyter>=1.1.1",
+    "natsort>=8.4.0",
+    "opencv-python>=4.12.0.88",
+    "tqdm>=4.67.1",
+    "ultralytics>=8.3.234",
+    "mlflow>=3.6.0",
+]
+
+[tool.uv]
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu128" }
+torchvision = { index = "pytorch-cu128" }
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.1",
+]
+
+
+# [tool.setuptools.packages.find]
+# where = ["src"]
