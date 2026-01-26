@@ -4,7 +4,7 @@
 
 ## Get Started
 
-1. создать каталог: `Disk:/docker-work`;
+1. создать каталог: `D:/docker-data`;
 2. в нём расположить все zip-архивы с датасетами (ВНИМАНИЕ: за любую потерю данных при выполнении действий вне инструкций в рамках данного каталога несёт ответственность ПОЛЬЗОВАТЕЛЬ);
 3. собрать образ в каталоге, где расположен Dockerfile:
 
@@ -15,7 +15,7 @@ docker build -t diplom:prod  -f Dockerfile .
 4. запустить образ и смонтировать локальный каталог с данными для обучения:
 
 ```shell
-docker run -it --rm -v D:/docker-work:/root/data diplom
+docker run -it --rm -v D:/docker-data:/root/data diplom
 ```
 
 5. вызвать ...
@@ -168,6 +168,10 @@ uvx ‑with pendulum ‑p 3.13t python
 uv sync --dev
 uv pip install -e .
 uv run -m miku_diplom # или `uv run pytest -v`
+```
+
+```bash
+uv run -m src.miku_diplom  # запуск модуля
 ```
 
 Размер пакетов: около 5 Гб.

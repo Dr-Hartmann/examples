@@ -1,48 +1,17 @@
-from dataclasses import Field, dataclass, field
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Callable, Literal
 
 import yaml
 from albumentations import Compose
-from colorama import Fore
-
-from .torch_config import TorchConfig
+from .core import TorchConfig
 
 
 @dataclass
 class YamlConfig(TorchConfig):
     def _parse_cfg_file(self, path: Path) -> dict[str, Any]:
-        try:
-            with open(path, "r", encoding="utf-8") as f:
-                return yaml.safe_load(f) or {}
-        except FileNotFoundError:
-            print(
-                Fore.YELLOW
-                + f"Файл конфигурации '{path}' не найден. Используются настройки по умолчанию."
-            )
-        except yaml.YAMLError as e:
-            print(
-                Fore.MAGENTA
-                + f"Ошибка парсинга YAML: {e}. Используются настройки по умолчанию."
-            )
-        return {}
-
-    def _set_value(self, fil: Field[Any], value: Any) -> None:
-        if fil.type is Path and isinstance(value, str):
-            setattr(self, fil.name, Path(value))
-            return
-
-        if value is None:
-            print(
-                Fore.YELLOW
-                + f"'{fil.name}': передан null. Используется значение по умолчанию: {fil.default}."
-            )
-            return
-
-        try:
-            setattr(self, fil.name, value)
-        except Exception as e:
-            print(Fore.MAGENTA + f"Ошибка при установке '{fil}': {e}")
+        with open(path, "r", encoding="utf-8") as f:
+            return yaml.safe_load(f) or {}
 
 
 @dataclass

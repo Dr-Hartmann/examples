@@ -23,6 +23,7 @@ class TorchConfig(ABC):
     @classmethod
     def create(cls, path: str) -> Self:
         """
+        Фабричный метод
         :param cls: параметр абстрактного метода-фабрики
         :param path: путь до файла-конфига
         :type path: str
@@ -31,11 +32,18 @@ class TorchConfig(ABC):
         """
         init(autoreset=True)
         cfg = cls()
-        data = cfg._parse_cfg_file(Path(path))
 
-        for f in fields(cfg):
-            if (key := f.name) in data:
-                cfg.__set_value(f, data[key])
+        data: dict[str, Any] = {}
+        try:
+            data = cfg._parse_cfg_file(Path(path))
+            for f in fields(cfg):
+                if (key := f.name) in data:
+                    cfg.__set_value(f, data[key])
+        except Exception as e:
+            print(
+                Fore.YELLOW
+                + f"Файл конфигурации '{path}': {e}. Используются настройки по умолчанию."
+            )
 
         return cfg._set_special_condition(data)
 
@@ -52,7 +60,7 @@ class TorchConfig(ABC):
 
     def __set_value(self, fil: Field[Any], value: Any) -> None:
         """
-        Устанавливает текущие значения параметров или по умолчанию
+        Устанавливает указанные значения или по умолчанию для параметров
         :param fil: поле
         :type fil: Field[Any]
         :param value: значение поля
@@ -77,6 +85,7 @@ class TorchConfig(ABC):
     @abstractmethod
     def _parse_cfg_file(self, path: Path) -> dict[str, Any]:
         """
+        Обрабатывает файл конфига в пригодный для работы вид #TODO
         :param path: абсолютный путь до файла-конфига
         :type path: Path
         :return: словарь параметров из файла-конфига
