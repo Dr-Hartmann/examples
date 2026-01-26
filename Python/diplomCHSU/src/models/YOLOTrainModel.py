@@ -1,52 +1,27 @@
-import cv2
-
 from pathlib import Path
 from typing import Iterable
+
+from .core import YamlTrainableModel
 from torch.backends import cudnn
 from ultralytics import settings
 from ultralytics.models import YOLO
-from ultralytics.engine.results import Results
 
-from configs import TrainYamlConfig
-from configs import InferenceYamlConfig
-from model_yaml import YamlTrainableModel
-
+from src.configs import TrainYamlConfig
 
 # from torch.utils.data import DataLoader
 # from .TrainDataset import TrainDataset
 
 
-class YOLOModel(YamlTrainableModel):
-    def __init__(
-        self, train_cfg_path: str | None = None, inf_cfg_path: str | None = None
-    ):
-        super.__init__(train_cfg_path, inf_cfg_path)
+class YOLOTrainModel(YamlTrainableModel):
+    def __init__(self, train_cfg_path: str | None = None):
+        YamlTrainableModel.__init__(self, train_cfg_path)
 
-    def get_model_pred(self, frame: cv2.typing.MatLike) -> Results:
-        return YOLO(self.inf_cfg.model_name).to(self.inf_cfg.model_device)(
-            frame,
-            verbose=False,
-            conf=self.inf_cfg.model_confidence,
-            classes=[
-                cls_id
-                for cls_id, name in YOLO(self.inf_cfg.model_name).names.items()
-                if name in self.inf_cfg.model_labels
-            ],
-        )[0]
-
-    def _get_train_cfg(self, train_yaml_cfg_path: str) -> TrainYamlConfig:
-        cfg = TrainYamlConfig.create(train_yaml_cfg_path)
+    def _get_train_cfg(self, train_cfg_path: str) -> TrainYamlConfig:
+        cfg = TrainYamlConfig.create(train_cfg_path)
         if cfg.model_type.lower() != "yolo":
             raise ReferenceError(f"Тип модели '{cfg.model_type}' не поддерживается.")
         if cfg.model_device.lower() != "cpu":
             cudnn.benchmark = True
-        cfg.model = YOLO(cfg.model_name)
-        return cfg
-
-    def _get_inference_cfg(self, inf_yaml_cfg_path: str) -> InferenceYamlConfig:
-        cfg = InferenceYamlConfig.create(inf_yaml_cfg_path)
-        if cfg.model_type.lower() != "yolo":
-            raise ReferenceError(f"Тип модели '{cfg.model_type}' не поддерживается.")
         cfg.model = YOLO(cfg.model_name)
         return cfg
 
@@ -74,10 +49,9 @@ class YOLOModel(YamlTrainableModel):
 
     def _start_train(self) -> None:
         # TODO
-        import os
-
-        os.environ["MLFLOW_TRACKING_URI"] = "file:./mlruns"
-        settings.update({"mlflow": False})
+        # import os
+        # os.environ["MLFLOW_TRACKING_URI"] = "file:./mlruns"
+        # settings.update({"mlflow": False})
 
         YOLO(self.train_cfg.model_name).train(
             data=self.train_cfg.datayaml,

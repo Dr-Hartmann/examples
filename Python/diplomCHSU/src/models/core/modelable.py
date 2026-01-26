@@ -12,12 +12,12 @@ from colorama import Fore, init
 from natsort import natsorted
 from tqdm import tqdm
 
-from configs import InferenceYamlConfig, TrainYamlConfig
-from myutils import IMG_TYPES, clear_directorys, get_file_paths, move_files, need_unpack
+from src.configs import InferenceYamlConfig, TrainYamlConfig
+from src.myutils import IMG_TYPES, clear_directorys, get_file_paths, move_files, need_unpack
 
 
 class TrainableModel(ABC):
-    def __init__(self, train_cfg_path: str):
+    def __init__(self, train_cfg_path: str) -> None:
         """
         Создать и установить конфиг для тренировки.
         :param self: Description
@@ -27,7 +27,7 @@ class TrainableModel(ABC):
         init(autoreset=True)
         self.train_cfg = self._get_train_cfg(train_cfg_path)
 
-    def train(self, target_name_cfg: str):
+    def train(self, target_name_cfg: str) -> None:
         """
         Точка входа тренировки.
         """
@@ -316,8 +316,7 @@ class TrainableModel(ABC):
         return model_lines
 
     def __get_concat_label(self, root: Any) -> str:
-        """Объединение параметров класса.
-        """
+        """Объединение параметров класса."""
         list_name = [
             self._get_attr_value(att, "name")
             for att in self._findall(root, "attribute")

@@ -1,4 +1,4 @@
-from .yaml_configs import InferenceYamlConfig, TrainYamlConfig
+from .cfg_yaml import InferenceYamlConfig, TrainYamlConfig
 
 __all__ = [
     "InferenceYamlConfig",

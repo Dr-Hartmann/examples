@@ -1,5 +1,7 @@
-from YOLOModel import YOLOModel
+from .YOLOInferenceModel import YOLOInferenceModel
+from .YOLOTrainModel import YOLOTrainModel
 
 __all__ = [
-    "YOLOModel",
+    "YOLOTrainModel",
+    "YOLOInferenceModel",
 ]
