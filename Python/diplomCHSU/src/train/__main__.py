@@ -1,16 +1,13 @@
 import argparse
 
-import mlflow
-
+# import mlflow
 # from scripts.mlruns import mlflow_init
 from src.models import YOLOTrainModel
 
 
 def main():
-    print("mikumikubeeeeeeeeeeeeeeeeeeeeeeeeeeaam!")
-
     parser = argparse.ArgumentParser()
-    parser.add_argument("-c", "--config", help="Path to 'train.yaml' file.")
+    parser.add_argument("-c", "--config", help="Path to 'train_config.yaml' file.")
     args = parser.parse_args()
     if not args.config:
         raise FileNotFoundError(
@@ -30,7 +27,7 @@ def main():
     #     mlflow.log_params(model.train_cfg.to_dict())
     #     model.train("traincfg")
 
-    model.train("traincfg")
+    model.train()
 
 
 if __name__ == "__main__":

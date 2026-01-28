@@ -61,7 +61,7 @@ class TrainYamlConfig(YamlConfig):
     transforms: Compose | None = field(
         default=None, metadata={TorchConfig._EXCLUDE_KEY: True}
     )
-    datayaml: str = field(default="data.yaml")
+    datayaml: str = field(default="train_data.yaml")
 
     ratio_train: float = field(default=0.7)
     ratio_valid: float = field(default=0.2)

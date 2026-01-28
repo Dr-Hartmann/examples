@@ -1,30 +1,29 @@
 [project]
 name = "diplomCHSU"
-version = "0.1.0"
+version = "1.0.0"
 description = "Моя Выпускная Квалификационная Работа в ЧГУ"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.14"
 dependencies = [
-    "torch>=2.0.0",
-    "torchvision>=0.15.0",
-    "albumentations>=2.0.8",
-    "jupyter>=1.1.1",
     "natsort>=8.4.0",
     "opencv-python>=4.12.0.88",
     "tqdm>=4.67.1",
-    "ultralytics>=8.3.234",
     "mlflow>=3.6.0",
+    "albumentations>=2.0.8",
+    "torch>=2.10.0",
+    "torchvision>=0.25.0",
+    "ultralytics>=8.4.6",
 ]
 
 [tool.uv]
+[tool.uv.sources]
+torch = { index = "pytorch-cu" }
+torchvision = { index = "pytorch-cu" }
+
 [[tool.uv.index]]
-name = "pytorch-cu128"
+name = "pytorch-cu"
 url = "https://download.pytorch.org/whl/cu128"
 explicit = true
-
-[tool.uv.sources]
-torch = { index = "pytorch-cu128" }
-torchvision = { index = "pytorch-cu128" }
 
 [dependency-groups]
 dev = [
@@ -37,3 +36,7 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src"]
+
+[project.scripts]
+train-model = "src.train.__main__:main"
+inference-model = "src.inference.__main__:main"

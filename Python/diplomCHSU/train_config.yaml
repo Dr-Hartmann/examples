@@ -1,0 +1,37 @@
+path_input: D:/DiplomDataset
+path_output: G:/model
+
+model_type: yolo
+model_name: yolo26n.pt
+model_device: cuda
+
+name_archives: archives
+name_images: images
+name_labels: labels
+name_train: train
+name_valid: val
+name_test: test
+
+model_param: { 
+    nothing: 0,
+    helmet: 1,
+    glasses: 2,
+    overalls: 4,
+    back: 8
+}
+model_output_name: bestModel
+
+train_epochs: 20
+train_image_size: 640
+train_batch: 4
+train_workers: 6
+train_skip_condition: "lambda x: x.get('glasses') == 'True' and x.get('back') == 'True'"
+
+annotations_name: annotations
+annotations_suffix: .xml
+
+datayaml: train_dt.yaml
+
+ratio_train: 0.7
+ratio_valid: 0.2
+ratio_test: 0.1

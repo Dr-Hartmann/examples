@@ -4,6 +4,8 @@
 
 ## Get Started
 
+TODO
+
 1. создать каталог: `D:/docker-data`;
 2. в нём расположить все zip-архивы с датасетами (ВНИМАНИЕ: за любую потерю данных при выполнении действий вне инструкций в рамках данного каталога несёт ответственность ПОЛЬЗОВАТЕЛЬ);
 3. собрать образ в каталоге, где расположен Dockerfile:
@@ -30,7 +32,7 @@ path_output: path/to/output/model/folder
 # Настройки модели обучени (Default)
 model_type: yolo
 model_name: yolo11n.pt
-model_device: cuda #cpu 
+model_device: cuda # cpu 
 
 # Базовые имена папок (не следует менять)
 name_archives: archives
@@ -48,7 +50,7 @@ model_param: {
     # other3: 4
     # other4: 8
 } # субпараметры классов
-model_output_name: bestYolo11n.pt
+model_output_name: bestYolo.pt
 
 # Параметры обучения (подгоняются во время экспериментов)
 train_epochs: 5
@@ -65,7 +67,7 @@ annotations_name: annotations
 annotations_suffix: .xml
 
 # Имя выходного конфигурационного файла, генерируемого специально для модели
-datayaml: data.yaml
+datayaml: train_dt.yaml
 
 # Параметры разбиения обучающей выборки. Следует держать в сумме 1.0
 ratio_train: 0.7
@@ -125,53 +127,30 @@ uv self update # обновить
 ### Создание нового проекта в виртуальном окружении
 
 ```bash
-uv init [<dir>] # создать venv вручную
-uv venv --python 3.13 # если нет Python на ПК, uv сам его установит автономно
-```
-
-Команда для инлайн-запуска Python-скрпитов без необходимости вручную активировать и деактивировать виртуальное окружение. При выполнении, `uv` автоматически активирует виртуальное окружение, а после завершения работы скрипта деактивирует его. При первом запуске команды внутри текущей директории будет создана `.venv`, содержащая устанавливаемые зависимости, используемые в окружении. Помимо этого, будет создан кроссплатформенный uv.lock файл.
-
-```bash
-uv run <script.py>
-uv run --python 3.10 <script.py>
-```
-
-```bash
-uv add <package> # установка пакетов
-uv add --dev pytest <package> # установка пакетов для разработки
-uv remove <package> # удалиь пакеты
+uv add \<package\> # установка пакетов
+uv add --dev pytest \<package\> # установка пакетов для разработки
+uv remove \<package\> # удалиь пакеты
 ```
 
 ```bash
 uv sync # скачивание пакетов в окружении в соответствии с pyproject.toml
 uv tree # вывод дерева пакетов
-
 uv tree --outdated # проверить обновления пакетов
-uv add <package> --upgrade # обновить пакеты что нуждаются
+uv add \<package\> --upgrade # обновить пакеты что нуждаются
 uv sync --upgrade # обновить все пакеты
-```
-
-```bash
-uv python install 3.10 3.11 3.12 # установка пайтона
 uv python pin 3.10 # выбор приоритетной версии запуска
 uvx cowsay -t "Hello Habr" # тестовый запуск библиотеки, установленной во временное venv
 uv cache clean # чистка кеша пакетов (не рекомендуется для скорости работы, но иначе занимает много памяти)
-
-# запуск дополнительно с пакетами без вшивания в venv
-uv run ‑with jupyter jupyter notebook
+uv run ‑with jupyter jupyter notebook # запуск дополнительно с пакетами без вшивания в venv
 uvx ‑with pendulum ‑p 3.13t python
 ```
 
-### Этапы подготовки окружения для разработки
+### Подготовка dev-окружения
 
 ```bash
-uv sync --dev
-uv pip install -e .
-uv run -m miku_diplom # или `uv run pytest -v`
-```
-
-```bash
-uv run -m src.miku_diplom  # запуск модуля
+uv sync --dev # содержит тестовые пакеты
+uv run train-model # или `uv run pytest -v`
+uv run inference-model
 ```
 
 Размер пакетов: около 5 Гб.

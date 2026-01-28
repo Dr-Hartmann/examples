@@ -2,7 +2,8 @@ import argparse
 
 from src.models import YOLOInferenceModel
 
-if __name__ == "__main__":
+
+def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-c", "--config", help="Path to 'inference.yaml' file.")
     args = parser.parse_args()
@@ -13,3 +14,7 @@ if __name__ == "__main__":
 
     model = YOLOInferenceModel(inf_cfg_path=args.config)
     model.inference()
+
+
+if __name__ == "__main__":
+    main()

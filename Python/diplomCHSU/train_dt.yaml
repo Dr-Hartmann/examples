@@ -1,0 +1,18 @@
+path: G:\model
+train: G:\model\train
+val: G:\model\val
+test: G:\model\test
+nc: 12
+names:
+- nothing
+- glasses
+- back
+- helmet
+- glasses_helmet
+- back_helmet
+- overalls
+- glasses_overalls
+- back_overalls
+- helmet_overalls
+- glasses_helmet_overalls
+- back_helmet_overalls
