@@ -1,12 +1,13 @@
 from pathlib import Path
 from typing import Iterable
 
-from .core import YamlTrainableModel
 from torch.backends import cudnn
 from ultralytics import settings
 from ultralytics.models import YOLO
 
 from src.configs import TrainYamlConfig
+
+from .core import YamlTrainableModel
 
 # from torch.utils.data import DataLoader
 # from .TrainDataset import TrainDataset
@@ -51,7 +52,7 @@ class YOLOTrainModel(YamlTrainableModel):
         # TODO
         # import os
         # os.environ["MLFLOW_TRACKING_URI"] = "file:./mlruns"
-        # settings.update({"mlflow": False})
+        settings.update({"mlflow": False})
 
         YOLO(self.train_cfg.model_name).train(
             data=self.train_cfg.datayaml,
@@ -62,8 +63,9 @@ class YOLOTrainModel(YamlTrainableModel):
             device=0
             if self.train_cfg.model_device.lower() == "cuda"
             else self.train_cfg.model_device.lower(),
-            project=self.train_cfg.path_input,
+            project=self.train_cfg.path_output,
             name=self.train_cfg.model_output_name,
+            amp=False,
         )
 
     # def __get_samples(self, root: Any) -> list[dict[str, object]]:

@@ -1,0 +1,32 @@
+path_input: G:/model/test/images
+path_output: G:/
+
+model_type: yolo
+model_name: G:/model/bestModel2/weights/best.pt
+model_device: cuda
+
+video_save: true
+video_fps: 60
+video_name: "VID"
+video_extention: "avi"
+video_codec: "DIVX"
+video_height: null
+
+window_show: true
+window_name: "Inference"
+
+model_labels: 
+- nothing
+- overalls
+- back
+- back_overalls
+- helmet
+- helmet_overalls
+- back_helmet
+- back_helmet_overalls
+- glasses
+- glasses_overalls
+- glasses_helmet
+- glasses_helmet_overalls
+
+model_confidence: 0.4

@@ -27,7 +27,7 @@ class TrainableModel(ABC):
         init(autoreset=True)
         self.train_cfg = self._get_train_cfg(train_cfg_path)
 
-    def train(self, target_name_cfg: str) -> None:
+    def train(self) -> None:
         """
         Точка входа тренировки.
         """
@@ -53,7 +53,7 @@ class TrainableModel(ABC):
         label_map = self.__get_normalized_cost(combos)
         self.__convert_ann_to_model(ann, list(label_map))
 
-        self.__generate_config(list(label_map), target_name_cfg)
+        self.__generate_config(list(label_map))
         self._start_train()
 
     def __unpack_archs_and_join_anns(self, ann: str) -> None:
@@ -339,7 +339,7 @@ class TrainableModel(ABC):
         ybr = float(self._get_attr_value(root, "ybr"))
         return (xtl, ytl, xbr, ybr)
 
-    def __generate_config(self, names: list[str], target_name_cfg: str) -> None:
+    def __generate_config(self, names: list[str]) -> None:
         config_data = {
             "path": str(self.train_cfg.path_output),
             "train": str(self.__pts[self.train_cfg.name_train]),
@@ -350,15 +350,15 @@ class TrainableModel(ABC):
         }
 
         try:
-            self._write_cfg_file(config_data, target_name_cfg)
+            self._write_cfg_file(config_data, self.train_cfg.datayaml)
             print(
                 Fore.GREEN
-                + f"Файл конфигурации успешно создан: {self.train_cfg.path_output / 'data.yaml'}"
+                + f"Файл конфигурации успешно создан: {self.train_cfg.path_output}"
             )
         except IOError as e:
             print(
                 Fore.RED
-                + f"Ошибка записи файла {self.train_cfg.path_output / 'data.yaml'}: {e}"
+                + f"Ошибка записи файла {self.train_cfg.path_output}: {e}"
             )
 
     @abstractmethod
@@ -599,7 +599,7 @@ class InferenceModel(ABC):
         if not self.__imgs:
             raise FileExistsError(
                 Fore.RED
-                + f"{self.inf_cfg.path_input / 'dataset'}: не найдено изображений!"
+                + f"{self.inf_cfg.path_input}: не найдено изображений!"
             )
         self.__imgs = natsorted(self.__imgs)
 
