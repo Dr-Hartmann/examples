@@ -1,4 +1,5 @@
 use std::time::Instant;
+
 pub fn test() {
     let mut count = 1000;
     let start = Instant::now();
