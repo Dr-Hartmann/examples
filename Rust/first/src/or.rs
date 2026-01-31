@@ -1,5 +1,5 @@
 use std::time::Instant;
-pub fn or_test() {
+pub fn test() {
     let mut count = 1000;
     let start = Instant::now();
     while count > 0 {
@@ -1013,7 +1013,11 @@ pub fn or_test() {
 
     let mut count = 1000;
     let start = Instant::now();
-    while count > 0 {
+    let duration = loop {
+        if count <= 0 {
+            break start.elapsed();
+        }
+
         if true
             || false
             || false
@@ -2018,8 +2022,7 @@ pub fn or_test() {
         {
             count -= 1;
         }
-    }
-    let duration = start.elapsed();
+    };
     println!("1000 ||: {:?}", duration);
 
     let start = Instant::now();

@@ -5,7 +5,7 @@ fn day_earlier(date_time: DateTime<Utc>) -> Option<DateTime<Utc>> {
     date_time.checked_sub_signed(Duration::days(1))
 }
 
-pub fn chrono_test() {
+pub fn test() {
     let now = Utc::now();
     println!("{}", now);
 
