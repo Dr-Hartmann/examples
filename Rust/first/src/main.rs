@@ -1,4 +1,4 @@
-use my_trash::{start};
+use my_trash::start;
 
 fn main() {
     start();
