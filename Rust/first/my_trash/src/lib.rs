@@ -41,7 +41,7 @@ pub fn start() {
                 let v = vec![1, 2, 3];
                 v[99];
             }
-            12 => {}
+            12 => println!("{:?}", last_char_of_first_line("мама мыла раму")),
             13 => println!("{:?}", read_username_from_file()),
 
             n => println!("непонятно: {n}"),
@@ -52,4 +52,6 @@ pub fn start() {
     let _ = io::stdin().read(&mut [0u8]).unwrap();
 }
 
-// pub fn
+fn last_char_of_first_line(text: &str) -> Option<char> {
+    text.lines().next()?.chars().last()
+}
