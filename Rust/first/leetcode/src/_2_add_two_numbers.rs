@@ -12,29 +12,37 @@ impl ListNode {
     }
 }
 
-pub fn add_two_numbers(l1: i32, l2: i32) {
-    let l1 = rec_mod_digits(l1);
-    let l2 = rec_mod_digits(l2);
-    println!("{l1:?}");
-    println!("{l2:?}");
-    let out = match Solution::add_two_numbers(l1, l2) {
+pub fn add_two_numbers(l1: i32, l2: i32) -> Box<ListNode> {
+    let l1 = digits_to_mod(l1);
+    let l2 = digits_to_mod(l2);
+    match Solution::add_two_numbers(l1, l2) {
         Some(value) => value,
         None => Box::new(ListNode::new(0)),
-    };
-    println!("{out:#?}");
+    }
 }
 
-fn rec_mod_digits(l: i32) -> Option<Box<ListNode>> {
+pub fn list_to_i32(l: Option<Box<ListNode>>) -> i32 {
+    node_to_i32(l, 1)
+}
+
+fn node_to_i32(l: Option<Box<ListNode>>, mul: u32) -> i32 {
+    if let Some(value) = l {
+        return value.val * mul as i32 + node_to_i32(value.next, mul * 10);
+    }
+    0
+}
+
+fn digits_to_mod(l: i32) -> Option<Box<ListNode>> {
     if l <= 0 {
         return None;
     }
 
     let mut out = Box::new(ListNode::new(l % 10));
-    out.next = rec_mod_digits(l / 10);
+    out.next = digits_to_mod(l / 10);
     Some(out)
 }
 
-struct Solution {}
+struct Solution;
 
 impl Solution {
     fn add_two_numbers(
@@ -70,5 +78,16 @@ impl Solution {
         let mut current_node = Box::new(ListNode::new(sum % 10));
         current_node.next = Self::solve(next_l1, next_l2, sum / 10);
         Some(current_node)
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn add_two_numbers_test() {
+        let out = add_two_numbers(15146, 14854);
+        assert_eq!(30_000, list_to_i32(Some(out)));
     }
 }

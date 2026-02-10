@@ -20,6 +20,7 @@ fn ret_username() -> Result<String, io::Error> {
     File::open("hello.txt")?.read_to_string(&mut username)?;
     Ok(username)
 
+    // Или так проще:
     // use std::fs;
     // fs::read_to_string("hello.txt")
 }

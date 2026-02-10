@@ -3,5 +3,9 @@ name = "first"
 version = "0.1.0"
 edition = "2024"
 
+[workspace]
+members = ["my_trash", "leetcode", "myutils"]
+
 [dependencies]
 my_trash = { version = "0.1.0", path = "my_trash" }
+leetcode = { version = "0.1.0", path = "leetcode" }

@@ -1,9 +1,9 @@
 use inquire::Text;
 use rand::Rng;
 
-pub fn inp_num() -> u8 {
+pub fn inp_num(msg: &str) -> u8 {
     loop {
-        let input = Text::new("Какое задание выполнить?")
+        let input = Text::new(msg)
             .with_help_message("Введите число")
             .prompt()
             .expect("Неудалось прочитать строку");
@@ -20,6 +20,6 @@ pub fn inp_num() -> u8 {
 
 pub fn gen_num(num: u8) -> Option<u8> {
     let mut rng = rand::rng();
-    let secret_sub = rng.random_range(0..=2);
+    let secret_sub = rng.random_range(0..=5);
     num.checked_sub(secret_sub)
 }
