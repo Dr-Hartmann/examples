@@ -5,17 +5,17 @@ pub fn is_palindrome_math(x: i32) -> bool {
         return false;
     }
 
-    let mut reverted_number = 0;
-    let mut temp_x = x;
+    let mut x = x;
+    let mut reverted = 0;
 
     // Разворачиваем только вторую половину числа.
     // Когда temp_x станет меньше или равен reverted_number, мы дошли до середины.
-    while temp_x > reverted_number {
-        reverted_number = reverted_number * 10 + temp_x % 10;
-        temp_x /= 10;
+    while x > reverted {
+        reverted = reverted * 10 + x % 10;
+        x /= 10;
     }
 
-    temp_x == reverted_number || temp_x == reverted_number / 10
+    x == reverted || x == reverted / 10
 }
 
 pub fn is_palindrome_string(x: i32) -> bool {
@@ -58,7 +58,7 @@ mod tests {
         assert!(!is_palindrome_math(123));
         assert!(!is_palindrome_math(12322));
 
-        assert!(is_palindrome_math(1234565432));
+        assert!(!is_palindrome_math(1234565432));
         assert!(!is_palindrome_math(2147483647));
 
         // решение через строки
@@ -74,7 +74,7 @@ mod tests {
         assert!(!is_palindrome_string(123));
         assert!(!is_palindrome_string(12322));
 
-        assert!(is_palindrome_string(1234565432));
+        assert!(!is_palindrome_string(1234565432));
         assert!(!is_palindrome_string(2147483647));
     }
 }

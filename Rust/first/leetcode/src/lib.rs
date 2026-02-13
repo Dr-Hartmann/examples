@@ -9,3 +9,6 @@ pub use _3_longest_substring_without_repeating_characters::length_of_longest_sub
 
 mod _9_palindrome_number;
 pub use _9_palindrome_number::{is_palindrome_math, is_palindrome_string};
+
+mod _13_roman_to_integer;
+pub use _13_roman_to_integer::roman_to_int;

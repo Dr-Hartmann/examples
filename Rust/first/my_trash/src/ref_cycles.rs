@@ -16,8 +16,8 @@ impl List {
     }
 }
 
-use super::reference_cycles::List::{Cons, Nil};
-pub fn reference_cycles() {
+use super::ref_cycles::List::{Cons, Nil};
+pub fn reference_cycles_1() {
     let a = Rc::new(Cons(5, RefCell::new(Rc::new(Nil))));
     if let Cons(ref v1, ref v2) = *a {
         println!("{:?}", (v1, v2));
