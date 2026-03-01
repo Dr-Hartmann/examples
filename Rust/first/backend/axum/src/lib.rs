@@ -1,3 +1,27 @@
+use axum::{
+    Router,
+    routing::{get, post},
+};
+
+#[tokio::main]
+pub async fn start() {
+    tracing_subscriber::fmt::init();
+
+    let app = Router::new()
+        .route("/", get(root))
+        .route("/json", get(json))
+        .route("/users", post(create_user))
+        .route("/echo", get(echo))
+    // .merge(SwaggerUi::new("/swagger-ui").url("/api-docs/openapi.json", ApiDoc::openapi()))
+    // .with_state(state)
+;
+    let listener = tokio::net::TcpListener::bind("127.0.0.1:3000")
+        .await
+        .unwrap();
+    tracing::debug!("listening on {}", listener.local_addr().unwrap());
+    axum::serve(listener, app).await.unwrap();
+}
+
 // basic handler that responds with a static string
 // #[utoipa::path(
 //     get,
@@ -14,8 +38,8 @@ pub async fn root() -> &'static str {
     "Hello, World!"
 }
 
-use dto::CreateUser;
-use entity::User;
+use api::request::CreateUser;
+use api::response::User;
 pub async fn create_user(Json(payload): Json<CreateUser>) -> (StatusCode, Json<User>) {
     let user = User {
         id: 1337,

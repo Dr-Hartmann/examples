@@ -1,3 +1,27 @@
+/// Находит два числа в массиве, сумма которых равна заданному значению.
+///
+/// # Arguments
+///
+/// * `nums` - Вектор целых чисел, в котором нужно найти пару чисел
+/// * `target` - Целевое значение, которое должна составлять сумма двух чисел
+///
+/// # Returns
+///
+/// Возвращает вектор из двух индексов, соответствующих найденным числам,
+/// сумма которых равна `target`. Если пара не найдена, возвращает пустой вектор.
+///
+/// # Panics
+///
+/// Функция может вызвать панику в случае арифметического переполнения при сложении.
+///
+/// # Examples
+///
+/// ```
+/// let nums = vec![2, 7, 11, 15];
+/// let target = 9;
+/// let result = two_sum_brute_force(nums, target);
+/// assert_eq!(result, vec![0, 1]);
+/// ```
 pub fn two_sum_brute_force(nums: Vec<i32>, target: i32) -> Vec<i32> {
     for (i, iv) in nums.iter().enumerate() {
         for (j, jv) in nums.iter().enumerate().skip(i + 1) {
@@ -14,6 +38,35 @@ pub fn two_sum_brute_force(nums: Vec<i32>, target: i32) -> Vec<i32> {
 }
 
 use std::collections::HashMap;
+
+/// Находит два числа в массиве, сумма которых равна заданному значению, используя хеш-таблицу.
+///
+/// # Arguments
+///
+/// * `nums` - Вектор целых чисел, в котором нужно найти пару чисел
+/// * `target` - Целевое значение, которое должна составлять сумма двух чисел
+///
+/// # Returns
+///
+/// Возвращает вектор из двух индексов, соответствующих найденным числам,
+/// сумма которых равна `target`. Если пара не найдена, возвращает пустой вектор.
+///
+/// # Time Complexity
+///
+/// O(n) - где n - количество элементов в векторе `nums`
+///
+/// # Space Complexity
+///
+/// O(n) - для хранения хеш-таблицы
+///
+/// # Examples
+///
+/// ```
+/// let nums = vec![2, 7, 11, 15];
+/// let target = 9;
+/// let result = two_sum_hash_table(nums, target);
+/// assert_eq!(result, vec![0, 1]);
+/// ```
 pub fn two_sum_hash_table(nums: Vec<i32>, target: i32) -> Vec<i32> {
     let mut map = HashMap::with_capacity(nums.len());
     for (i, &num) in nums.iter().enumerate() {

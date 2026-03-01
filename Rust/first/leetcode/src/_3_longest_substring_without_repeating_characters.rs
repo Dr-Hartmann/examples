@@ -1,3 +1,28 @@
+/// Находит длину самой длинной подстроки без повторяющихся символов.
+///
+/// # Arguments
+///
+/// * `str` - Строка, в которой нужно найти самую длинную подстроку без повторений
+///
+/// # Returns
+///
+/// Возвращает длину самой длинной подстроки без повторяющихся символов.
+///
+/// # Time Complexity
+///
+/// O(n) - где n - длина входной строки, так как мы проходим по строке один раз
+///
+/// # Space Complexity
+///
+/// O(min(m,n)) - где m - размер алфавита, n - длина строки
+///
+/// # Examples
+///
+/// ```
+/// assert_eq!(length_of_longest_substring("abcabcbb"), 3); // "abc"
+/// assert_eq!(length_of_longest_substring("bbbbb"), 1);   // "b"
+/// assert_eq!(length_of_longest_substring("pwwkew"), 3);  // "wke"
+/// ```
 pub fn length_of_longest_substring(str: &str) -> i32 {
     solve(String::from(str))
 }

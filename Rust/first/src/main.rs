@@ -8,8 +8,11 @@ use my_trash::{
 };
 use std::io::{self, Read};
 
+use backend::{self, axum, poem};
+
 fn main() {
     println!("It`s work, isn`t?");
+    print!("Здесь нет");
 
     'outer: loop {
         let num: u8 = inp_num("Какое задание выполнить?");
@@ -64,6 +67,9 @@ fn main() {
             13 => println!("{:?}", read_username_from_file()),
             14 => reference_cycles_1(),
             15 => reference_cycles_2(),
+            16 => backend::start(),
+            17 => poem::start(),
+            18 => axum::start(),
             30 => {
                 let start = std::time::Instant::now();
                 let _ = two_sum_hash_table((1..=10_000).collect(), 19_999);
